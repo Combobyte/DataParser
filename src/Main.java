@@ -1,7 +1,7 @@
 /**
  * Main class for the data parser
  *
- * @author: Varun SReedhar
+ * @author: Varun Sreedhar
  */
 
 public class Main {
