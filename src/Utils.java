@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Utils {
@@ -18,5 +19,9 @@ public class Utils {
         }
 
         return output.toString();
+    }
+
+    public ArrayList<ElectionResult> parse2016PresidentialResults(String str){
+        return null;
     }
 }
