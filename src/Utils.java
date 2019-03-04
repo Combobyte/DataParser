@@ -22,6 +22,10 @@ public class Utils {
     }
 
     public ArrayList<ElectionResult> parse2016PresidentialResults(String str){
+        String[] data = str.split("\n");
+        for(String s : data){
+            String[] trueData = s.split(",");
+        }
         return null;
     }
 }
