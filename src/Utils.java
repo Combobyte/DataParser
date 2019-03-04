@@ -23,9 +23,20 @@ public class Utils {
 
     public ArrayList<ElectionResult> parse2016PresidentialResults(String str){
         String[] data = str.split("\n");
+        ArrayList<ElectionResult> output = new ArrayList<>();
         for(String s : data){
-            String[] trueData = s.split(",");
+
         }
         return null;
+    }
+
+    private int countCommas(String s){
+        int sum = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(s.substring(i, i+1).equals(",")){
+                sum++;
+            }
+        }
+        return sum;
     }
 }
