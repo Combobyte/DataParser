@@ -103,4 +103,11 @@ public class ElectionResult {
     public void setCombined_fips(double combined_fips) {
         this.combined_fips = combined_fips;
     }
+
+    public String toString(){
+        String output = "Dem votes: " + votes_dem + "\nGop votes: " + votes_gop + "\nTotal Votes: " +
+                total_votes + "\nPercent Dem: " + percent_dem + "\nPercent Gop" + percent_gop + "\nDiff: " +
+                diff + "\nPer point diff: " + per_point_diff + "\nState: " + state_abbr + "\nCounty: " + county + "\nCombined fips: " +combined_fips;
+        return output;
+    }
 }
