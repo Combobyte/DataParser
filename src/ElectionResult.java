@@ -1,17 +1,17 @@
 public class ElectionResult {
 
-    private int votes_dem;
-    private int votes_gop;
-    private int total_votes;
+    private double votes_dem;
+    private double votes_gop;
+    private double total_votes;
     private double percent_dem;
     private double percent_gop;
-    private int diff;
+    private double diff;
     private double per_point_diff;
     private String state_abbr;
     private String county;
-    private int combined_fips;
+    private double combined_fips;
 
-    public ElectionResult(int dem, int gop, int total, double perDem, double perGop, int diff, double perDiff, String state, String county, int combined){
+    public ElectionResult(double dem, double gop, double total, double perDem, double perGop, double diff, double perDiff, String state, String county, double combined){
         votes_dem = dem;
         votes_gop = gop;
         total_votes = total;
@@ -24,27 +24,27 @@ public class ElectionResult {
         combined_fips = combined;
     }
 
-    public int getVotes_dem() {
+    public double getVotes_dem() {
         return votes_dem;
     }
 
-    public void setVotes_dem(int votes_dem) {
+    public void setVotes_dem(double votes_dem) {
         this.votes_dem = votes_dem;
     }
 
-    public int getVotes_gop() {
+    public double getVotes_gop() {
         return votes_gop;
     }
 
-    public void setVotes_gop(int votes_gop) {
+    public void setVotes_gop(double votes_gop) {
         this.votes_gop = votes_gop;
     }
 
-    public int getTotal_votes() {
+    public double getTotal_votes() {
         return total_votes;
     }
 
-    public void setTotal_votes(int total_votes) {
+    public void setTotal_votes(double total_votes) {
         this.total_votes = total_votes;
     }
 
@@ -64,11 +64,11 @@ public class ElectionResult {
         this.percent_gop = percent_gop;
     }
 
-    public int getDiff() {
+    public double getDiff() {
         return diff;
     }
 
-    public void setDiff(int diff) {
+    public void setDiff(double diff) {
         this.diff = diff;
     }
 
@@ -96,11 +96,11 @@ public class ElectionResult {
         this.county = county;
     }
 
-    public int getCombined_fips() {
+    public double getCombined_fips() {
         return combined_fips;
     }
 
-    public void setCombined_fips(int combined_fips) {
+    public void setCombined_fips(double combined_fips) {
         this.combined_fips = combined_fips;
     }
 }
