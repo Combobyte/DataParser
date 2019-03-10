@@ -21,46 +21,30 @@ public class Utils {
         return output.toString();
     }
 
-    public static ArrayList<ElectionResult> parse2016PresidentialResults(String str){
-        int count = 0;
-        String[] data = str.split("\n");
-        ArrayList<ElectionResult> output = new ArrayList<>();
-        for(String s : data){
-            if(!(count == 0)) {
-                s = removeOddities(s);
-                String[] values = s.split(",");
-                output.add(new ElectionResult(Double.parseDouble(values[1]), Double.parseDouble(values[2]),
-                        Double.parseDouble(values[3]), Double.parseDouble(values[4]),
-                        Double.parseDouble(values[5]), Double.parseDouble(values[6]), Double.parseDouble(values[7]),
-                        values[8], values[9], Double.parseDouble(values[10])));
-            }
-            count++;
-        }
-        return output;
+    public static DataManager parseAllData(String education, String election, String employment){
+        DataManager dataManager = new DataManager();
+
+        return dataManager;
     }
 
-    private static String removeOddities(String s){
-        int num = countCommas(s);
+    public static String removeGarbage(String str){
+        while(str.indexOf("\"") != -1){
+            int indexOfFirstQuote = str.indexOf("\"");
+            int indexOfSecondQuote = str.indexOf("\"", indexOfFirstQuote + 1);
+            String fixed = removeCommas(str.substring(indexOfFirstQuote, indexOfSecondQuote));
+            fixed = fixed.trim();
+            str = str.substring(0, indexOfFirstQuote) + fixed + str.substring(indexOfSecondQuote + 1);
+        }
+        return str;
+    }
+
+    public static String removeCommas(String str){
         String output = "";
-        int commaCount = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.substring(i, i+1).equals(",")){
-                commaCount++;
-            }
-            if(!(((commaCount == 7 && num > 10) || (commaCount == 8 && num > 11)) || (s.substring(i, i+1).equals("\"") || s.substring(i, i+1).equals("%")))){
-                output+=s.substring(i, i+1);
+        for(int i = 0; i < str.length(); i++){
+            if(str.substring(i, i+1).equals(",")){
+                output+= str.substring(i, i+1);
             }
         }
         return output;
-    }
-
-    private static int countCommas(String s){
-        int sum = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.substring(i, i+1).equals(",")){
-                sum++;
-            }
-        }
-        return sum;
     }
 }
