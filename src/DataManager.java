@@ -4,5 +4,19 @@ public class DataManager {
 
     private ArrayList<State> states;
 
+    public DataManager(){
+        states = new ArrayList<>();
+    }
 
+    public void add(State s){
+        states.add(s);
+    }
+
+    public ArrayList<State> getStates() {
+        return states;
+    }
+
+    public void setStates(ArrayList<State> states) {
+        this.states = states;
+    }
 }
