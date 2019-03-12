@@ -30,6 +30,7 @@ public class Utils {
         String lastState = "AK";
         State state = new State(lastState);
         for(int n = 0; n < electionArr.length; n++){
+            System.out.println(n);
             String str = removeGarbage(electionArr[n]);
             String[] valsElect = str.split(",");
             if(!valsElect[8].equals(lastState)){
@@ -81,7 +82,7 @@ public class Utils {
             int indexOfSecondQuote = str.indexOf("\"", indexOfFirstQuote + 1);
             String fixed = removeCommas(str.substring(indexOfFirstQuote, indexOfSecondQuote));
             fixed = fixed.trim();
-            str = str.substring(0, indexOfFirstQuote) + fixed + str.substring(indexOfSecondQuote + 1);
+            str = str.substring(0, indexOfFirstQuote) + fixed.substring(1) + str.substring(indexOfSecondQuote + 1);
         }
         return str;
     }
@@ -89,7 +90,7 @@ public class Utils {
     private static String removeCommas(String str){
         String output = "";
         for(int i = 0; i < str.length(); i++){
-            if(str.substring(i, i+1).equals(",")){
+            if(!(str.substring(i, i+1).equals(","))){
                 output+= str.substring(i, i+1);
             }
         }
