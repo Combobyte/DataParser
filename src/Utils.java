@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,6 +22,16 @@ public class Utils {
         }
 
         return output.toString();
+    }
+
+    public static void writeToFile(String filepath, String data){
+        File outFile = new File(filepath);
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(outFile))){
+            writer.write(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static DataManager parseAllData(String election, String education, String employment){
