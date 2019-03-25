@@ -42,7 +42,6 @@ public class Utils {
         String lastState = "AK";
         State state = new State(lastState);
         for(int n = 0; n < electionArr.length; n++){
-            System.out.println(n);
             String str = removeGarbage(electionArr[n]);
             String[] valsElect = str.split(",");
             if(!valsElect[8].equals(lastState)){
@@ -50,6 +49,7 @@ public class Utils {
                 dataManager.add(state);
                 state = new State(lastState);
             }
+            int fips = Integer.parseInt(valsElect[10]);
             int indexOfFipsEdu = 0;
             int indexOfFipsEmploy = 0;
             for(int i = 0; i < educationArr.length; i++){
