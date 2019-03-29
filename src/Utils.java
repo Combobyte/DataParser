@@ -53,26 +53,28 @@ public class Utils {
             int indexOfFipsEdu = 0;
             int indexOfFipsEmploy = 0;
             for(int i = 0; i < educationArr.length; i++){
-                if(educationArr[i].indexOf(valsElect[10]) == 0){
+                if(educationArr[i].indexOf(valsElect[10]) <= 4 && educationArr[i].indexOf(valsElect[10]) != -1){
                     indexOfFipsEdu = i;
                     break;
                 }
             }
             for(int i = 0; i < employmentArr.length; i++){
-                if(employmentArr[i].indexOf(valsElect[10]) == 0){
+                if(employmentArr[i].indexOf(valsElect[10]) <= 4 && employmentArr[i].indexOf(valsElect[10]) != -1){
                     indexOfFipsEmploy = i;
                     break;
                 }
             }
-            String[] valsEdu = removeGarbage(educationArr[indexOfFipsEdu]).split(",");
-            String[] valsEmploy = removeGarbage(employmentArr[indexOfFipsEmploy]).split(",");
-            Election2016 elect = new Election2016(Double.parseDouble(valsElect[1]), Double.parseDouble(valsElect[2]), Double.parseDouble(valsElect[3]));
-            Education2016 edu = new Education2016(Double.parseDouble(valsEdu[39]),Double.parseDouble(valsEdu[40]),Double.parseDouble(valsEdu[41]),Double.parseDouble(valsEdu[42]));
-            Employment2016 employ = new Employment2016(((int)Double.parseDouble(valsEmploy[42])),((int)Double.parseDouble(valsEmploy[43])),((int)Double.parseDouble(valsEmploy[44])),Double.parseDouble(valsEmploy[45]));
-            County c = new County(valsEdu[2], Integer.parseInt(valsEdu[0]),elect,edu,employ);
-            state.add(c);
-            if(n == electionArr.length -1){
-                dataManager.add(state);
+            if(!(indexOfFipsEdu == 0 || indexOfFipsEmploy == 0)) {
+                String[] valsEdu = removeGarbage(educationArr[indexOfFipsEdu]).split(",");
+                String[] valsEmploy = removeGarbage(employmentArr[indexOfFipsEmploy]).split(",");
+                Election2016 elect = new Election2016(Double.parseDouble(valsElect[1]), Double.parseDouble(valsElect[2]), Double.parseDouble(valsElect[3]));
+                Education2016 edu = new Education2016(Double.parseDouble(valsEdu[39]), Double.parseDouble(valsEdu[40]), Double.parseDouble(valsEdu[41]), Double.parseDouble(valsEdu[42]));
+                Employment2016 employ = new Employment2016(((int) Double.parseDouble(valsEmploy[42])), ((int) Double.parseDouble(valsEmploy[43])), ((int) Double.parseDouble(valsEmploy[44])), Double.parseDouble(valsEmploy[45]));
+                County c = new County(valsEdu[2], Integer.parseInt(valsEdu[0]), elect, edu, employ);
+                state.add(c);
+                if (n == electionArr.length - 1) {
+                    dataManager.add(state);
+                }
             }
         }
         return dataManager;
